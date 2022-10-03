@@ -1,6 +1,7 @@
 package main
 
 import (
+	pb "github.com/emiliano080591/grpcv2/greet/proto"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 	"log"
@@ -17,4 +18,7 @@ func main() {
 	}
 
 	defer conn.Close()
+	c := pb.NewGreetServiceClient(conn)
+
+	doGreet(c)
 }
