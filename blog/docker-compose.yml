@@ -1,0 +1,13 @@
+version: '3'
+services:
+  mongodb:
+    image: mongo:3.5
+    hostname: ${MONGODB_HOST}
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=root
+    restart: on-failure
+    ports:
+      - 27050:27017
+    volumes:
+      - ./mongodb:/data/db
